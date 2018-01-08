@@ -1,11 +1,11 @@
 Default = "\\192.168.204.17"
 
-inputMSG = InputBox ( "ÇëÊäÈë:", "", Default)
+inputMSG = InputBox ( "è¯·è¾“å…¥:", "", Default)
 
 If IsEmpty(inputMSG) Then wscript.quit
 
 If inputMSG = "" Then 
-    msgbox "Öµ²»ÄÜÎª¿Õ" 
+    msgbox "å€¼ä¸èƒ½ä¸ºç©º" 
     wscript.quit
 End if
 
