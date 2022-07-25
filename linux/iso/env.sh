@@ -5,16 +5,16 @@ set -e
 #clear
 DIR_CURR=$(cd $(dirname "$0"); pwd)
 cd ${DIR_CURR}
-usage(){ echo -e "Usages:\n\t$0 -a <apps> -p <port> [-t] [--set-value]"; }
-[[ -z "$1" ]] && { usage; exit 1; }
+usage(){ echo -e "Usages:\n\t$0 -a <apps> -p <port> [-t] [--set-value]"; exit 127; }
+[ -z $1 ] && { usage; }
 while [ -n "$1" ]; do
     case "$1" in
-    -a | --allow ) shift; [ -z $1 ] && { usage; exit 1; }; ALLOW=$1;;
-    -h | --help  ) usage; exit 1;;
-    -p | --ports ) shift; [ -z $1 ] && { usage; exit 1; }; PORTS=$1;;
+    -a | --allow ) shift; [ -z $1 ] && { usage; }; ALLOW=$1;;
+    -h | --help  ) usage;;
+    -p | --ports ) shift; [ -z $1 ] && { usage; }; PORTS=$1;;
     -t | --types ) TYPES=true;;
     --set-value  ) VALUE=true;;
-    *) usage; exit 1;;
+    *) usage;;
     esac
     shift
 done
